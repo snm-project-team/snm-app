@@ -1,3 +1,3 @@
 # snm-app
 
-pushのテスト
+pushのテスト2
