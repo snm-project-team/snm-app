@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
+import { StyleSheet } from 'react-native';
 import { Header, Left, Body, Right, Button, Icon, Title, Text } from 'native-base';
 
-export default class HeaderIconButtonTextButtonExample extends React.Component {
+const styles = StyleSheet.create({
+  title: {
+    paddingLeft: 80,
+    textAlign: 'center'
+  },
+});
 
+export default class HeaderIconButtonTextButtonExample extends React.Component {
   render() {
     return (
       <Header>
         <Left>
           <Button transparent>
-            <Icon name='arrow-back' />
+            <Icon name='menu' />
           </Button>
         </Left>
         <Body>
-          <Title>Header</Title>
+          <Title style={styles.title}>Header</Title>
         </Body>
-        <Right>
-          <Button transparent>
-            <Text>Cancel</Text>
-          </Button>
-        </Right>
       </Header>
     );
   }
