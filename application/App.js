@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container } from 'native-base';
+import { StyleProvider, Container } from 'native-base';
+import getTheme from './native-base-theme/components';
+import material from './native-base-theme/variables/material';
 import Header from './src/components/Header/index'
 import Map from './src/components/Map/index'
 
@@ -30,10 +32,12 @@ export default class App extends React.Component {
     }
 
     return (
-      <Container>
-        <Header />
-        <Map />
-      </Container>
+      <StyleProvider style={getTheme(material)}>
+        <Container>
+          <Header />
+          <Map />
+        </Container>
+      </StyleProvider>
     );
   }
 }
