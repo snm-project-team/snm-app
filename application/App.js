@@ -1,12 +1,16 @@
 import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './rootReducer';
 import { StyleProvider, Container } from 'native-base';
 import getTheme from './native-base-theme/components';
 import material from './native-base-theme/variables/material';
-import Header from './src/components/Header/index'
-import Map from './src/components/Map/index'
+import Header from './src/containers/header'
+import Map from './src/components/map'
+
+const Store = createStore(rootReducer)
 
 export default class App extends React.Component {
-
   constructor() {
     super();
     this.state = {
@@ -33,10 +37,12 @@ export default class App extends React.Component {
 
     return (
       <StyleProvider style={getTheme(material)}>
-        <Container>
-          <Header />
-          <Map />
-        </Container>
+        <Provider store={Store}>
+          <Container>
+            <Header />
+            <Map />
+          </Container>
+        </Provider>
       </StyleProvider>
     );
   }

@@ -14,7 +14,10 @@ export default class HeaderIconButtonTextButtonExample extends React.Component {
     return (
       <Header>
         <Left>
-          <Button transparent>
+          <Button
+            transparent
+            onPress={() => this.props.setMenuOpen(true)}
+          >
             <Icon name='menu' />
           </Button>
         </Left>
