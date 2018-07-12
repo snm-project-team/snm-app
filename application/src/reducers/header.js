@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { SET_MENU_OPEN } from '../actions/map';
+import { SET_MENU_OPEN } from '../actions/header';
 
 const defaultState = {
   isMenuOpen: false
