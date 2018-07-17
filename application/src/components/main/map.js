@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { MapView } from 'expo';
 
-export default class Mpp extends React.Component {
+export default class Mpp extends Component {
   render() {
     return (
       <MapView

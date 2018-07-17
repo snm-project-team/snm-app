@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { List, ListItem, Text } from 'native-base';
 
-export default class Dra extends React.Component {
+export default class SideNav extends Component {
   render() {
     return (
       <List>

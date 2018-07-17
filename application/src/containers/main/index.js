@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { setMenuOpen } from '../../actions/main';
-import Header from '../../components/header';
+import Main from '../../components/main';
 
 function mapStateToProps(state) {
   return {
@@ -17,4 +17,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Header);
+)(Main);

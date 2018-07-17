@@ -9,14 +9,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class HeaderIconButtonTextButtonExample extends React.Component {
+export default class HeaderComponent extends Component {
   render() {
     return (
       <Header>
         <Left>
           <Button
             transparent
-            onPress={() => this.props.setMenuOpen(true)}
+            onPress={() => this.props.setMenuOpen(!this.props.isSideMenuOpen)}
           >
             <Icon name='menu' />
           </Button>

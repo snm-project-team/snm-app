@@ -6,8 +6,7 @@ import { StyleProvider, Container } from 'native-base';
 import getTheme from './native-base-theme/components';
 import material from './native-base-theme/variables/material';
 import Header from './src/containers/header'
-import Map from './src/components/map'
-import SideMenu from './src/components/sideMenu'
+import Main from './src/containers/main'
 
 const Store = createStore(rootReducer)
 
@@ -41,8 +40,7 @@ export default class App extends React.Component {
         <Provider store={Store}>
           <Container>
             <Header />
-            <SideMenu />
-            <Map />
+            <Main />
           </Container>
         </Provider>
       </StyleProvider>
