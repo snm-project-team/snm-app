@@ -1,14 +1,20 @@
 import React from 'react';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './rootReducer';
+import createSagaMiddleware from 'redux-saga';
 import { StyleProvider, Container } from 'native-base';
+import { firebaseInit } from './src/dao/firebase'
+import { rootSaga } from './src/sagas'
+import rootReducer from './rootReducer';
 import getTheme from './native-base-theme/components';
 import material from './native-base-theme/variables/material';
 import Header from './src/containers/header'
 import Main from './src/containers/main'
 
-const Store = createStore(rootReducer)
+firebaseInit();
+const sagaMiddleware = createSagaMiddleware();
+const Store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga);
 
 export default class App extends React.Component {
   constructor() {
