@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Drawer from 'react-native-drawer';
+import SideNav from '../../containers/sideNav/mainMenu';
 import Map from './map'
-import SideNav from '../sideNav/mainMenu';
 
 const drawerStyles = {
   drawer: { backgroundColor: '#FFFFFF'},
@@ -15,7 +15,8 @@ export default class DrawerComponent extends Component {
         open={this.props.isSideMenuOpen}
         onClose={() => {
           if(this.props.isSideMenuOpen) {
-            this.props.setMenuOpen(false)}
+            this.props.setMenuOpen(false)
+          }
           }
         }
         type="overlay"
