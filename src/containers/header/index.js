@@ -10,7 +10,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setMenuOpen: (isSideMenuOpen) => dispatch(setMenuOpen(isSideMenuOpen)),
+    setMenuOpen: isSideMenuOpen => dispatch(setMenuOpen(isSideMenuOpen)),
   };
 }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Drawer from 'react-native-drawer';
 import SideNav from '../../containers/sideNav/mainMenu';
 import Map from './map'
@@ -9,6 +10,10 @@ const drawerStyles = {
 }
 
 export default class DrawerComponent extends Component {
+  static propTypes={
+    isSideMenuOpen: PropTypes.bool.isRequired,
+    setMenuOpen: PropTypes.func.isRequired
+  }
   render() {
     return (
       <Drawer
