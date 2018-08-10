@@ -1,35 +1,20 @@
 import React from 'react';
 import { createStore, applyMiddleware } from 'redux';
-import { Provider, connect } from 'react-redux';
+import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import {
-  reduxifyNavigator,
-  createReactNavigationReduxMiddleware
-} from 'react-navigation-redux-helpers';
 import { StyleProvider, Container } from 'native-base';
 import { firebaseInit } from './src/dao/firebase'
 import { rootSaga } from './src/sagas'
 import rootReducer from './rootReducer';
+import { AppWithNavigationState, NavigationMiddleware } from './rootStack'
 import getTheme from './native-base-theme/components';
 import material from './native-base-theme/variables/material';
-import RootStack from './rootStack'
 
 firebaseInit();
-const sagaMiddleware = createSagaMiddleware();
-const navigationMiddleware = createReactNavigationReduxMiddleware(
-  "root",
-  state =>  state.navigationRoot
-);
+const SagaMiddleware = createSagaMiddleware();
 
-const navApp = reduxifyNavigator(RootStack, "root");
-const mapStateToProps = (state) => ({
-  state: state.navigationRoot,
-});
-
-const AppWithNavigationState = connect(mapStateToProps)(navApp);
-
-const Store = createStore(rootReducer, applyMiddleware(sagaMiddleware, navigationMiddleware));
-sagaMiddleware.run(rootSaga);
+const Store = createStore(rootReducer, applyMiddleware(SagaMiddleware, NavigationMiddleware));
+SagaMiddleware.run(rootSaga);
 
 export default class App extends React.Component {
   constructor() {

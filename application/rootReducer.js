@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import { createNavigationReducer } from 'react-navigation-redux-helpers';
 import main from './src/reducers/main';
-import RootStack from './rootStack'
+import { StackNavigator } from './rootStack'
 
-const navigationRoot = createNavigationReducer(RootStack);
+const navigationRoot = createNavigationReducer(StackNavigator);
 
 export default combineReducers({
   navigationRoot,
