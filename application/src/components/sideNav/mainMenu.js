@@ -17,8 +17,8 @@ export default class SideNav extends Component {
         <ListItem>
           <Text>B</Text>
         </ListItem>
-        <ListItem>
-          <Text>Bradley Horowitz</Text>
+        <ListItem onPress={() => this.props.logout()}>
+          <Text>ログアウト</Text>
         </ListItem>
       </List>
     );
