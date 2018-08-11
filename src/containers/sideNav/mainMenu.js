@@ -11,7 +11,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    logout: (isSideMenuOpen) => dispatch(NavigationActions.navigate({ routeName: 'Login' }))
+    logout: (isSideMenuOpen) => dispatch(NavigationActions.navigate({ routeName: 'SignIn' }))
   };
 }
 

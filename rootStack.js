@@ -5,7 +5,8 @@ import {
   reduxifyNavigator,
   createReactNavigationReduxMiddleware
 } from 'react-navigation-redux-helpers';
-import LoginScreen from './src/containers/login'
+import SignInScreen from './src/containers/signIn'
+import SignUpScreen from './src/containers/signUp'
 import { createStackNavigator } from 'react-navigation';
 import Header from './src/containers/header'
 import MainConponents from './src/containers/main'
@@ -21,11 +22,9 @@ class MainScreen extends React.Component {
 
 const StackNavigator = createStackNavigator(
   {
-    Login: { screen: LoginScreen },
+    SignIn: { screen: SignInScreen },
+    SignUp: { screen: SignUpScreen },
     Main: { screen: MainScreen }
-  },
-  {
-    headerMode: 'none',
   }
 );
 
