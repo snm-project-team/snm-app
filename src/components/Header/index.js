@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet } from 'react-native';
 import {
   Header,
   Left,
@@ -9,13 +8,8 @@ import {
   Icon,
   Title,
 } from 'native-base';
-
-const styles = StyleSheet.create({
-  title: {
-    paddingLeft: 80,
-    textAlign: 'center',
-  },
-});
+import { TEXT, ICON } from './constants';
+import styles from './styles';
 
 export default class HeaderComponent extends Component {
   static propTypes={
@@ -32,12 +26,12 @@ export default class HeaderComponent extends Component {
             transparent
             onPress={() => setMenuOpen(!isSideMenuOpen)}
           >
-            <Icon name="menu" />
+            <Icon name={ICON.MENU} />
           </Button>
         </Left>
         <Body>
           <Title style={styles.title}>
-            Header
+            {TEXT.HEADER}
           </Title>
         </Body>
       </Header>

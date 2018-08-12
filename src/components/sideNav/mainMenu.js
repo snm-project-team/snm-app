@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { List, ListItem, Text } from 'native-base';
+import { TEXT } from './constants';
 
 export default class SideNav extends Component {
   static propTypes={
@@ -13,12 +14,12 @@ export default class SideNav extends Component {
       <List>
         <ListItem>
           <Text>
-            グループ管理
+            {TEXT.GROUP_MANAGE}
           </Text>
         </ListItem>
         <ListItem onPress={() => signOut()}>
           <Text>
-            ログアウト
+            {TEXT.SIGN_OUT}
           </Text>
         </ListItem>
       </List>

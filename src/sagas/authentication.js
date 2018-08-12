@@ -1,5 +1,6 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import { NavigationActions } from 'react-navigation';
+import { PAGE_LIST, EMPTY_STRING } from '../common/globalConstants';
 import {
   GET_CURRENT_USER,
   SIGN_IN,
@@ -17,7 +18,7 @@ import {
 function* getCurrentUser() {
   const data = currentUser();
   if (data) {
-    yield put(NavigationActions.navigate({ routeName: 'Main' }));
+    yield put(NavigationActions.navigate({ routeName: PAGE_LIST.MAIN }));
   }
 }
 
@@ -26,8 +27,7 @@ function* signIn(action) {
     const authInfo = action.payload;
     const data = yield call(signInWithEmailAndPassword, authInfo);
     yield put(setUserUid(data.user.uid));
-    yield put(setUserUid(''));
-    yield put(NavigationActions.navigate({ routeName: 'Main' }));
+    yield put(NavigationActions.navigate({ routeName: PAGE_LIST.MAIN }));
   } catch (e) {
     console.log(e);
   }
@@ -38,7 +38,7 @@ function* signUp(action) {
     const authInfo = action.payload;
     const data = yield call(createUserWithEmailAndPassword, authInfo);
     yield put(setUserUid(data.user.uid));
-    yield put(NavigationActions.navigate({ routeName: 'Main' }));
+    yield put(NavigationActions.navigate({ routeName: PAGE_LIST.MAIN }));
   } catch (e) {
     console.log(e);
   }
@@ -47,7 +47,8 @@ function* signUp(action) {
 function* signOut() {
   try {
     yield call(signOutFunc);
-    yield put(NavigationActions.navigate({ routeName: 'SignIn' }));
+    yield put(setUserUid(EMPTY_STRING));
+    yield put(NavigationActions.navigate({ routeName: PAGE_LIST.SIGN_IN }));
   } catch (e) {
     console.log(e);
   }
