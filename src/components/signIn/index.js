@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 
 export default class SignInScreen extends React.Component {
   state = {
-    mailAddress: '',
+    email: '',
     password: ''
   };
   static propTypes = {
@@ -31,8 +31,8 @@ export default class SignInScreen extends React.Component {
     return (
       <KeyboardAvoidingView style={styles.container}>
         <TextInput
-          value={this.state.mailAddress}
-          onChangeText={value => this.setState({ mailAddress: value })}
+          value={this.state.email}
+          onChangeText={value => this.setState({ email: value })}
           placeholder="メールアドレス"
           placeholderTextColor="#7c7c7c"
           underlineColorAndroid={'rgba(0,0,0,0)'}
@@ -49,7 +49,10 @@ export default class SignInScreen extends React.Component {
         <Button
           title="sign in"
           buttonStyle={styles.button}
-          onPress={() => this.props.signIn()}
+          onPress={() => this.props.signIn({
+            email: this.state.email,
+            password: this.state.password
+          })}
         />
         <Button
           title="新規登録"

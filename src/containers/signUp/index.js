@@ -5,7 +5,7 @@ import SignUp from '../../components/signUp';
 
 function mapDispatchToProps(dispatch) {
   return {
-    signUp: () => dispatch(signUp())
+    signUp: authInfo => dispatch(signUp(authInfo))
   }
 }
 
