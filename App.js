@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import { StyleProvider, Container } from 'native-base';
 import { firebaseInit } from './src/dao/firebase'
-import { rootSaga } from './src/sagas'
+import rootSaga from './src/sagas'
 import rootReducer from './rootReducer';
 import { AppWithNavigationState, NavigationMiddleware } from './rootStack'
 import getTheme from './native-base-theme/components';

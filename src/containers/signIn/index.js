@@ -7,7 +7,6 @@ function mapDispatchToProps(dispatch) {
   return {
     signIn: authInfo => dispatch(signIn(authInfo)),
     moveSignUpPage: () => dispatch(NavigationActions.navigate({ routeName: 'SignUp' })),
-    moveMainPage: () => dispatch(NavigationActions.navigate({ routeName: 'Main' })),
   };
 }
 

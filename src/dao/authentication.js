@@ -1,14 +1,17 @@
+import { call } from 'redux-saga/effects';
 import Firebase from './firebase';
 
-const authentication = {
-  signIn: (authInfo) => {
-    Firebase.auth().signInWithEmailAndPassword(authInfo.email, authInfo.password)
-      .catch(e => console.log(e));
-  },
-  signUp: (authInfo) => {
-    Firebase.auth().createUserWithEmailAndPassword(authInfo.email, authInfo.password)
-      .catch(e => console.log(e));
-  },
-};
+function* signInWithEmailAndPassword(authInfo) {
+  const auth = Firebase.auth();
+  return yield call([auth, auth.signInWithEmailAndPassword], authInfo.email, authInfo.password);
+}
 
-export default authentication;
+function* createUserWithEmailAndPassword(authInfo) {
+  const auth = Firebase.auth();
+  return yield call([auth, auth.createUserWithEmailAndPassword], authInfo.email, authInfo.password);
+}
+
+export {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+};

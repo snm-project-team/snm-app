@@ -1,12 +1,12 @@
 import { handleActions } from 'redux-actions';
-import { SET_USER_TOKEN } from '../actions/authentication';
+import { SET_USER_UID } from '../actions/authentication';
 
 const defaultState = {
   userToken: '',
 };
 
 export default handleActions({
-  [SET_USER_TOKEN]: (state, action) => ({
+  [SET_USER_UID]: (state, action) => ({
     ...state,
     userToken: action.payload,
   }),
