@@ -1,8 +1,10 @@
-import { store } from './store'
-import { authentication } from './authentication'
-import { fork } from 'redux-saga/effects'
+import { fork } from 'redux-saga/effects';
+import authentication from './authentication';
+import store from './store';
 
-export function* rootSaga() {
+function* rootSaga() {
   yield fork(authentication);
   yield fork(store);
 }
+
+export default rootSaga;

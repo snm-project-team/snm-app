@@ -1,16 +1,14 @@
-import Firebase from './firebase'
+import Firebase from './firebase';
 
-export default authentication = {
-  signIn: authInfo => {
-    console.log(authInfo)
+const authentication = {
+  signIn: (authInfo) => {
     Firebase.auth().signInWithEmailAndPassword(authInfo.email, authInfo.password)
-      .then(authData => console.log(authData))
-      .catch(e => console.log(e))
+      .catch(e => console.log(e));
   },
-  signUp: authInfo => {
-    console.log(authInfo)
+  signUp: (authInfo) => {
     Firebase.auth().createUserWithEmailAndPassword(authInfo.email, authInfo.password)
-      .then(authData => console.log(authData))
-      .catch(e => console.log(e))
-  }
-}
+      .catch(e => console.log(e));
+  },
+};
+
+export default authentication;

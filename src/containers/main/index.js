@@ -4,17 +4,17 @@ import Main from '../../components/main';
 
 function mapStateToProps(state) {
   return {
-    isSideMenuOpen: state.main.isSideMenuOpen
+    isSideMenuOpen: state.main.isSideMenuOpen,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setMenuOpen: (isSideMenuOpen) => dispatch(setMenuOpen(isSideMenuOpen)),
+    setMenuOpen: isSideMenuOpen => dispatch(setMenuOpen(isSideMenuOpen)),
   };
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Main);

@@ -4,25 +4,22 @@ import { List, ListItem, Text } from 'native-base';
 
 export default class SideNav extends Component {
   static propTypes={
-    logout: PropTypes.func.isRequired
+    logout: PropTypes.func.isRequired,
   }
+
   render() {
+    const { logout } = this.props;
     return (
       <List>
         <ListItem>
-          <Text>A</Text>
+          <Text>
+            グループ管理
+          </Text>
         </ListItem>
-        <ListItem>
-          <Text>Aaron Bennet</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Ali Connors</Text>
-        </ListItem>
-        <ListItem>
-          <Text>B</Text>
-        </ListItem>
-        <ListItem onPress={() => this.props.logout()}>
-          <Text>ログアウト</Text>
+        <ListItem onPress={() => logout()}>
+          <Text>
+            ログアウト
+          </Text>
         </ListItem>
       </List>
     );

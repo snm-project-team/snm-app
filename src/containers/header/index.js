@@ -4,7 +4,7 @@ import Header from '../../components/header';
 
 function mapStateToProps(state) {
   return {
-    isSideMenuOpen: state.main.isSideMenuOpen
+    isSideMenuOpen: state.main.isSideMenuOpen,
   };
 }
 
@@ -16,5 +16,5 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Header);

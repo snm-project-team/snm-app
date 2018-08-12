@@ -1,21 +1,20 @@
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
-import { setMenuOpen } from '../../actions/main';
 import MainMenu from '../../components/sideNav/mainMenu';
 
 function mapStateToProps(state) {
   return {
-    navigationRoot: state.navigationRoot
-  }
+    navigationRoot: state.navigationRoot,
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    logout: (isSideMenuOpen) => dispatch(NavigationActions.navigate({ routeName: 'SignIn' }))
+    logout: () => dispatch(NavigationActions.navigate({ routeName: 'SignIn' })),
   };
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(MainMenu);
