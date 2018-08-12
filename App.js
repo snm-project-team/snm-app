@@ -3,10 +3,10 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import { StyleProvider, Container } from 'native-base';
-import { firebaseInit } from './src/dao/firebase'
-import rootSaga from './src/sagas'
+import { firebaseInit } from './src/dao/firebase';
+import rootSaga from './src/sagas';
 import rootReducer from './rootReducer';
-import { AppWithNavigationState, NavigationMiddleware } from './rootStack'
+import { AppWithNavigationState, NavigationMiddleware } from './rootStack';
 import getTheme from './native-base-theme/components';
 import material from './native-base-theme/variables/material';
 
@@ -19,12 +19,8 @@ SagaMiddleware.run(rootSaga);
 export default class App extends React.Component {
   constructor() {
     super();
-    console.ignoredYellowBox = [
-      'Setting a timer'
-      ];
-    this.state = {
-      isReady: false
-    };
+    console.ignoredYellowBox = ['Setting a timer'];
+    this.state = { isReady: false };
   }
 
   componentWillMount() {

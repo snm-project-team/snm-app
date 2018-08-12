@@ -29,8 +29,14 @@ export default class SignInScreen extends React.Component {
   };
 
   static propTypes = {
+    getCurrentUser: PropTypes.func.isRequired,
     signIn: PropTypes.func.isRequired,
     moveSignUpPage: PropTypes.func.isRequired,
+  }
+
+  componentWillMount() {
+    const { getCurrentUser } = this.props;
+    getCurrentUser();
   }
 
   render() {

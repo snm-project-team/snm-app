@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { NavigationActions } from 'react-navigation';
+import { signOut } from '../../actions/authentication';
 import MainMenu from '../../components/sideNav/mainMenu';
 
 function mapStateToProps(state) {
@@ -10,7 +10,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    logout: () => dispatch(NavigationActions.navigate({ routeName: 'SignIn' })),
+    signOut: () => dispatch(signOut()),
   };
 }
 

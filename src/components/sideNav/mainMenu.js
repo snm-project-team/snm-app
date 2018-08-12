@@ -4,11 +4,11 @@ import { List, ListItem, Text } from 'native-base';
 
 export default class SideNav extends Component {
   static propTypes={
-    logout: PropTypes.func.isRequired,
+    signOut: PropTypes.func.isRequired,
   }
 
   render() {
-    const { logout } = this.props;
+    const { signOut } = this.props;
     return (
       <List>
         <ListItem>
@@ -16,7 +16,7 @@ export default class SideNav extends Component {
             グループ管理
           </Text>
         </ListItem>
-        <ListItem onPress={() => logout()}>
+        <ListItem onPress={() => signOut()}>
           <Text>
             ログアウト
           </Text>

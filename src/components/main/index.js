@@ -11,8 +11,14 @@ const drawerStyles = {
 
 export default class DrawerComponent extends Component {
   static propTypes={
+    getCurrentUser: PropTypes.func.isRequired,
     isSideMenuOpen: PropTypes.bool.isRequired,
     setMenuOpen: PropTypes.func.isRequired,
+  }
+
+  componentWillUnmount() {
+    const { getCurrentUser } = this.props;
+    getCurrentUser();
   }
 
   render() {
