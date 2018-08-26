@@ -1,28 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { List, ListItem, Text } from 'native-base';
+import { TEXT } from './constants';
 
 export default class SideNav extends Component {
   static propTypes={
-    logout: PropTypes.func.isRequired
+    signOut: PropTypes.func.isRequired,
   }
+
   render() {
+    const { signOut } = this.props;
     return (
       <List>
         <ListItem>
-          <Text>A</Text>
+          <Text>
+            {TEXT.GROUP_MANAGE}
+          </Text>
         </ListItem>
-        <ListItem>
-          <Text>Aaron Bennet</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Ali Connors</Text>
-        </ListItem>
-        <ListItem>
-          <Text>B</Text>
-        </ListItem>
-        <ListItem onPress={() => this.props.logout()}>
-          <Text>ログアウト</Text>
+        <ListItem onPress={() => signOut()}>
+          <Text>
+            {TEXT.SIGN_OUT}
+          </Text>
         </ListItem>
       </List>
     );

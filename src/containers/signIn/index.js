@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
-import { setMenuOpen } from '../../actions/main';
+import { PAGE_LIST } from '../../common/globalConstants';
+import { getCurrentUser, signIn } from '../../actions/authentication';
 import SignIn from '../../components/signIn';
 
 function mapDispatchToProps(dispatch) {
   return {
-    signIn: () => dispatch(NavigationActions.navigate({ routeName: 'Main' })),
-    moveSignUpPage: () => dispatch(NavigationActions.navigate({ routeName: 'SignUp' })),
-    moveMainPage: () => dispatch(NavigationActions.navigate({ routeName: 'Main' }))
-  }
+    getCurrentUser: () => dispatch(getCurrentUser()),
+    signIn: authInfo => dispatch(signIn(authInfo)),
+    moveSignUpPage: () => dispatch(NavigationActions.navigate({ routeName: PAGE_LIST.SIGN_UP })),
+  };
 }
 
 export default connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(SignIn);

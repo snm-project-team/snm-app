@@ -1,60 +1,63 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { KeyboardAvoidingView, TextInput, Button } from 'react-native';
-import { StyleSheet } from 'react-native';
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 30,
-    marginTop: 100,
-    marginBottom: 20
-  },
-  textInput: {
-    marginBottom: 20,
-    borderWidth: 1
-  },
-  button: {
-    marginTop: 10, 
-  }
-});
+import {
+  KeyboardAvoidingView,
+  TextInput,
+  Button,
+} from 'react-native';
+import { EMPTY_STRING } from '../../common/globalConstants';
+import { BASIC } from '../../common/globalStyleConstants';
+import styles from './styles';
+import { TEXT } from './constants';
 
 export default class SignInScreen extends React.Component {
   state = {
-    mailAddress: '',
-    password: ''
+    email: EMPTY_STRING,
+    password: EMPTY_STRING,
   };
+
   static propTypes = {
+    getCurrentUser: PropTypes.func.isRequired,
     signIn: PropTypes.func.isRequired,
-    moveSignUpPage: PropTypes.func.isRequired
+    moveSignUpPage: PropTypes.func.isRequired,
   }
+
+  componentWillMount() {
+    const { getCurrentUser } = this.props;
+    getCurrentUser();
+  }
+
   render() {
+    const { signIn, moveSignUpPage } = this.props;
+    const { email, password } = this.state;
     return (
       <KeyboardAvoidingView style={styles.container}>
         <TextInput
-          value={this.state.mailAddress}
-          onChangeText={value => this.setState({ mailAddress: value })}
-          placeholder="メールアドレス"
-          placeholderTextColor="#7c7c7c"
-          underlineColorAndroid={'rgba(0,0,0,0)'}
+          value={email}
+          onChangeText={value => this.setState({ email: value })}
+          placeholder={TEXT.EMAIL}
+          placeholderTextColor={BASIC.PLACE_HOLDER_TEXT_COLOR}
+          underlineColorAndroid={BASIC.UNDER_LINE_COLOR_ANDROID}
           style={styles.textInput}
         />
         <TextInput
-          value={this.state.password}
+          value={password}
           onChangeText={value => this.setState({ password: value })}
-          placeholder="パスワード"
-          placeholderTextColor="#7c7c7c"
-          underlineColorAndroid={'rgba(0,0,0,0)'}
+          placeholder={TEXT.PASSWORD}
+          placeholderTextColor={BASIC.PLACE_HOLDER_TEXT_COLOR}
+          underlineColorAndroid={BASIC.UNDER_LINE_COLOR_ANDROID}
           style={styles.textInput}
         />
         <Button
-          title="sign in"
+          // ボタンのコンポネントはタイトル直入れじゃないと怒る
+          title="サインイン"
           buttonStyle={styles.button}
-          onPress={() => this.props.signIn()}
+          onPress={() => signIn({ email, password })}
         />
         <Button
           title="新規登録"
           buttonStyle={styles.button}
-          onPress={() => this.props.moveSignUpPage()}
+          onPress={() => moveSignUpPage()}
         />
       </KeyboardAvoidingView>
     );

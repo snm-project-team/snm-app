@@ -1,12 +1,12 @@
-import storeDao from '../dao/store'
-import { fork, takeEvery } from 'redux-saga/effects'
-import { SET_MENU_OPEN } from '../actions/main';
+// import { takeEvery } from 'redux-saga/effects';
+// import { SET_MENU_OPEN } from '../actions/main';
+// import storeDao from '../dao/store';
 
-registerStore = () => {
-  console.log('b')
-  return storeDao.create('storeName');
-}
+// function* registerStore() {
+//   yield 1
+//   return storeDao.create('storeName');
+// }
 
-export function* store() {
-  yield takeEvery(SET_MENU_OPEN, registerStore)
-}
+// export default function* store() {
+//   yield takeEvery(SET_MENU_OPEN, registerStore);
+// }
