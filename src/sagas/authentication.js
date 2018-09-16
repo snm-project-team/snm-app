@@ -22,7 +22,7 @@ function* getCurrentUser() {
   }
 }
 
-function* signIn(action) {
+export function* signIn(action) {
   try {
     const authInfo = action.payload;
     const data = yield call(signInWithEmailAndPassword, authInfo);
