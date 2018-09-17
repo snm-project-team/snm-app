@@ -5,14 +5,14 @@ import {
   TEST_USER_TOKEN,
 } from 'react-native-dotenv';
 import { PAGE_LIST } from '../../common/globalConstants';
-import { firebaseInit } from '../../dao/firebase';
+import { firebaseInit } from '../../daos/firebase';
 import { signIn } from '../authentication';
 import {
   SIGN_IN,
   SET_USER_UID,
 } from '../../actions/authentication';
 
-describe('auth saga', () => {
+describe('authentication saga', () => {
   firebaseInit();
 
   it('signInにSIGN_INアクションを渡すとUserTokenの更新とページ遷移を行うアクションを発行すること', () => expectSaga(signIn, {

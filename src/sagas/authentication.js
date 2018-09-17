@@ -13,7 +13,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOutFunc,
-} from '../dao/authentication';
+} from '../daos/authentication';
 
 function* getCurrentUser() {
   const data = currentUser();

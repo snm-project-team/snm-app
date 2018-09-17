@@ -1,13 +1,16 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import jest from 'jest-mock';
 import SignIn from '../../signIn';
 
-it('renders without crashing', () => {
+const mockFn = jest.fn();
+
+it('SignIn画面のスナップショットテスト', () => {
   const rendered = renderer.create(
     <SignIn
-      getCurrentUser={() => {}}
-      signIn={() => {}}
-      moveSignUpPage={() => {}}
+      getCurrentUser={mockFn}
+      signIn={mockFn}
+      moveSignUpPage={mockFn}
     />,
   ).toJSON();
   expect(rendered).toMatchSnapshot();

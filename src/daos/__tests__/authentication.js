@@ -6,7 +6,7 @@ import {
 import Firebase, { firebaseInit } from '../firebase';
 import { signInWithEmailAndPassword } from '../authentication';
 
-describe('auth saga', () => {
+describe('authentication saga', () => {
   firebaseInit();
 
   it('signInWithEmailAndPasswordがFirebaseのメソッドをcallしていること', () => {
