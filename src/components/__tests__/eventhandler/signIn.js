@@ -12,18 +12,24 @@ const wrapper = shallow(
   />,
 );
 
-it('ロード時にイベントを発行すること', () => {
-  expect(mockFn).toHaveBeenCalled();
-});
+describe('signIn eventhandler', () => {
+  it('ロード時にイベントを発行すること', () => {
+    expect(mockFn).toHaveBeenCalled();
+  });
 
-it('signInボタンがonPressされた時にイベントを発行すること', () => {
-  const signInButton = wrapper.find('#signIn');
-  signInButton.simulate('onPress');
-  expect(mockFn).toHaveBeenCalled();
-});
+  it('signInボタンがonPressされた時にイベントを発行すること', () => {
+    const signInButton = wrapper.find('#signIn');
+    signInButton.simulate('onPress');
+    expect(mockFn).toHaveBeenCalled();
+    expect(mockFn).toHaveBeenCalledWith({
+      email: '',
+      password: '',
+    });
+  });
 
-it('signUpボタンがonPressされた時にイベントを発行すること', () => {
-  const signInButton = wrapper.find('#signUp');
-  signInButton.simulate('onPress');
-  expect(mockFn).toHaveBeenCalled();
+  it('signUpボタンがonPressされた時にイベントを発行すること', () => {
+    const signInButton = wrapper.find('#signUp');
+    signInButton.simulate('onPress');
+    expect(mockFn).toHaveBeenCalled();
+  });
 });

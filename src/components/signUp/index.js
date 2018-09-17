@@ -42,8 +42,9 @@ export default class SignUpScreen extends React.Component {
           style={styles.textInput}
         />
         <Button
+          id="signUp"
           title="登録"
-          onPress={() => signUp({ email, password })}
+          onPress={signUp({ email, password })}
         />
       </KeyboardAvoidingView>
     );

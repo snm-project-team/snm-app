@@ -17,7 +17,7 @@ export default class SideNav extends Component {
             {TEXT.GROUP_MANAGE}
           </Text>
         </ListItem>
-        <ListItem onPress={() => signOut()}>
+        <ListItem id="signOut" onPress={signOut()}>
           <Text>
             {TEXT.SIGN_OUT}
           </Text>
