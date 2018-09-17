@@ -14,3 +14,6 @@ export const signOut = createAction(SIGN_OUT);
 
 export const SET_USER_UID = 'AUTHENTICATION-SET_USER_UID';
 export const setUserUid = createAction(SET_USER_UID);
+
+export const SET_ERROR_INFO = 'AUTHENTICATION-SET_ERROR_INFO';
+export const setErrorInfo = createAction(SET_ERROR_INFO);

@@ -1,19 +1,42 @@
 import authentication from '../authentication';
-import { SET_USER_UID } from '../../actions/authentication';
+import { EMPTY_STRING } from '../../common/globalConstants';
+import { SET_USER_UID, SET_ERROR_INFO } from '../../actions/authentication';
 
-const userToken = 'testToken';
+const testUserToken = 'testToken';
+const testErrorCode = 'testErrorCode';
+const testErrorMessage = 'testErrorMessage';
 
 describe('authentication reducer', () => {
   it('何も渡さない場合にinitialStateを返すこと', () => {
     expect(authentication(undefined, {})).toEqual({
-      userToken: '',
+      userToken: EMPTY_STRING,
+      errorCode: EMPTY_STRING,
+      errorMessage: EMPTY_STRING,
     });
   });
 
-  it('SET_USER_UIDアクションを渡すと、受け取ったuserTokenの内容にstateを書き換えること', () => {
+  it('SET_USER_UIDアクションを渡すと、userTokenを書き換えること', () => {
     expect(authentication(undefined, {
       type: SET_USER_UID,
-      payload: userToken,
-    })).toEqual({ userToken });
+      payload: testUserToken,
+    })).toEqual({
+      userToken: testUserToken,
+      errorCode: EMPTY_STRING,
+      errorMessage: EMPTY_STRING,
+    });
+  });
+
+  it('SET_ERROR_INFOアクションを渡すと、errorCodeとerrorMessageを書き換えること', () => {
+    expect(authentication(undefined, {
+      type: SET_ERROR_INFO,
+      payload: {
+        errorCode: testErrorCode,
+        errorMessage: testErrorMessage,
+      },
+    })).toEqual({
+      userToken: EMPTY_STRING,
+      errorCode: testErrorCode,
+      errorMessage: testErrorMessage,
+    });
   });
 });

@@ -7,6 +7,7 @@ import {
   SIGN_UP,
   SIGN_OUT,
   setUserUid,
+  setErrorInfo,
 } from '../actions/authentication';
 import {
   currentUser,
@@ -29,28 +30,37 @@ export function* signIn(action) {
     yield put(setUserUid(data.user.uid));
     yield put(NavigationActions.navigate({ routeName: PAGE_LIST.MAIN }));
   } catch (e) {
-    console.log(e);
+    yield put(setErrorInfo({
+      errorCode: e.code,
+      errorMessage: e.message,
+    }));
   }
 }
 
-function* signUp(action) {
+export function* signUp(action) {
   try {
     const authInfo = action.payload;
     const data = yield call(createUserWithEmailAndPassword, authInfo);
     yield put(setUserUid(data.user.uid));
     yield put(NavigationActions.navigate({ routeName: PAGE_LIST.MAIN }));
   } catch (e) {
-    console.log(e);
+    yield put(setErrorInfo({
+      errorCode: e.code,
+      errorMessage: e.message,
+    }));
   }
 }
 
-function* signOut() {
+export function* signOut() {
   try {
     yield call(signOutFunc);
     yield put(setUserUid(EMPTY_STRING));
     yield put(NavigationActions.navigate({ routeName: PAGE_LIST.SIGN_IN }));
   } catch (e) {
-    console.log(e);
+    yield put(setErrorInfo({
+      errorCode: e.code,
+      errorMessage: e.message,
+    }));
   }
 }
 
