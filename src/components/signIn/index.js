@@ -53,13 +53,13 @@ export default class SignInScreen extends React.Component {
           // ボタンのコンポネントはタイトル直入れじゃないと怒る
           title="サインイン"
           buttonStyle={styles.button}
-          onPress={signIn({ email, password })}
+          onPress={() => signIn({ email, password })}
         />
         <Button
           id="signUp"
           title="新規登録"
           buttonStyle={styles.button}
-          onPress={moveSignUpPage()}
+          onPress={() => moveSignUpPage()}
         />
       </KeyboardAvoidingView>
     );

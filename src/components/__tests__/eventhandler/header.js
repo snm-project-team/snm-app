@@ -14,7 +14,7 @@ const wrapper = shallow(
 describe('header eventhandler', () => {
   it('サイドメニュー開閉ボタンがonPressされた時にイベントを発行すること', () => {
     const sideMenuToggleButton = wrapper.find('#sideMenuToggle');
-    sideMenuToggleButton.simulate('onPress');
+    sideMenuToggleButton.props().onPress();
     expect(mockFn).toHaveBeenCalled();
   });
 });

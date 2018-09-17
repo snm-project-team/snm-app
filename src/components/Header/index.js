@@ -25,7 +25,7 @@ export default class HeaderComponent extends Component {
           <Button
             id="sideMenuToggle"
             transparent
-            onPress={setMenuOpen(!isSideMenuOpen)}
+            onPress={() => setMenuOpen(!isSideMenuOpen)}
           >
             <Icon name={ICON.MENU} />
           </Button>

@@ -13,7 +13,7 @@ const wrapper = shallow(
 describe('signUp eventhandler', () => {
   it('signUpボタンがonPressされた時にイベントを発行すること', () => {
     const signUpButton = wrapper.find('#signUp');
-    signUpButton.simulate('onPress');
+    signUpButton.props().onPress();
     expect(mockFn).toHaveBeenCalled();
     expect(mockFn).toHaveBeenCalledWith({
       email: '',

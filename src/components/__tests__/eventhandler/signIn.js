@@ -19,7 +19,7 @@ describe('signIn eventhandler', () => {
 
   it('signInボタンがonPressされた時にイベントを発行すること', () => {
     const signInButton = wrapper.find('#signIn');
-    signInButton.simulate('onPress');
+    signInButton.props().onPress();
     expect(mockFn).toHaveBeenCalled();
     expect(mockFn).toHaveBeenCalledWith({
       email: '',
@@ -29,7 +29,7 @@ describe('signIn eventhandler', () => {
 
   it('signUpボタンがonPressされた時にイベントを発行すること', () => {
     const signInButton = wrapper.find('#signUp');
-    signInButton.simulate('onPress');
+    signInButton.props().onPress();
     expect(mockFn).toHaveBeenCalled();
   });
 });

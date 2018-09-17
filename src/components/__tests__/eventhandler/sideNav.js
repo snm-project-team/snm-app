@@ -13,7 +13,7 @@ const wrapper = shallow(
 describe('mainMenu eventhandler', () => {
   it('サインアウトボタンがonPressされた時にイベントを発行すること', () => {
     const signOutButton = wrapper.find('#signOut');
-    signOutButton.simulate('onPress');
+    signOutButton.props().onPress();
     expect(mockFn).toHaveBeenCalled();
   });
 });
