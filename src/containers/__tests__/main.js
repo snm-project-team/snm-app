@@ -19,11 +19,11 @@ describe('Main Container', () => {
     expect(wrapper.props().isSideMenuOpen).toEqual(false);
   });
 
-  it('getCurrentUserがConponentに渡されていること', () => {
+  it('getCurrentUser実行時にアクションが発行されていること', () => {
     expect(wrapper.props().getCurrentUser()).toEqual({ type: GET_CURRENT_USER });
   });
 
-  it('setMenuOpenがConponentに渡されていること', () => {
+  it('setMenuOpen実行時にアクションが発行されていること', () => {
     expect(wrapper.props().setMenuOpen()).toEqual({ type: SET_MENU_OPEN });
   });
 });

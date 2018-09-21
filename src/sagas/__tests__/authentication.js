@@ -18,10 +18,10 @@ describe('authentication saga', () => {
   firebaseInit();
 
   const testUserInfo = { email: TEST_USER_EMAIL, password: TEST_USER_PASS };
-  const EmptyEmailUserInfo = { email: EMPTY_STRING, password: TEST_USER_PASS };
-  const WrongEmailUserInfo = { email: 'dummy@nobady.com', password: TEST_USER_PASS };
-  const EmptyPasswordUserInfo = { email: TEST_USER_EMAIL, password: EMPTY_STRING };
-  const WrongPasswordUserInfo = { email: TEST_USER_EMAIL, password: 'WrongPassword' };
+  const emptyEmailUserInfo = { email: EMPTY_STRING, password: TEST_USER_PASS };
+  const wrongEmailUserInfo = { email: 'dummy@nobady.com', password: TEST_USER_PASS };
+  const emptyPasswordUserInfo = { email: TEST_USER_EMAIL, password: EMPTY_STRING };
+  const wrongPasswordUserInfo = { email: TEST_USER_EMAIL, password: 'WrongPassword' };
 
   it('signInにSIGN_INアクションを渡すとUserTokenの更新とページ遷移を行うアクションを発行すること', () => expectSaga(signIn, {
     type: SIGN_IN,
@@ -36,7 +36,7 @@ describe('authentication saga', () => {
 
   it('不正なフォーマットのemailでSignInを実行するとFirebase規定のエラーメッセージを登録するアクションを発行すること', () => expectSaga(signIn, {
     type: SIGN_IN,
-    payload: EmptyEmailUserInfo,
+    payload: emptyEmailUserInfo,
   }).put({
     type: SET_ERROR_INFO,
     payload: {
@@ -47,7 +47,7 @@ describe('authentication saga', () => {
 
   it('存在しないemailでSignInを実行するとFirebase規定のエラーメッセージを登録するアクションを発行すること', () => expectSaga(signIn, {
     type: SIGN_IN,
-    payload: WrongEmailUserInfo,
+    payload: wrongEmailUserInfo,
   }).put({
     type: SET_ERROR_INFO,
     payload: {
@@ -58,7 +58,7 @@ describe('authentication saga', () => {
 
   it('不正なフォーマットのパスワードでSignInを実行するとFirebase規定のエラーメッセージを登録するアクションを発行すること', () => expectSaga(signIn, {
     type: SIGN_IN,
-    payload: EmptyPasswordUserInfo,
+    payload: emptyPasswordUserInfo,
   }).put({
     type: SET_ERROR_INFO,
     payload: {
@@ -69,7 +69,7 @@ describe('authentication saga', () => {
 
   it('誤ったのパスワードでSignInを実行するとFirebase規定のエラーメッセージを登録するアクションを発行すること', () => expectSaga(signIn, {
     type: SIGN_IN,
-    payload: WrongPasswordUserInfo,
+    payload: wrongPasswordUserInfo,
   }).put({
     type: SET_ERROR_INFO,
     payload: {

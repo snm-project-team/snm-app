@@ -17,7 +17,7 @@ describe('MainMenu Container', () => {
     expect(wrapper.props().navigationRoot).toEqual(EMPTY_OBJECT);
   });
 
-  it('signOutがConponentに渡されていること', () => {
+  it('signOut実行時にアクションが発行されていること', () => {
     expect(wrapper.props().signOut()).toEqual({ type: SIGN_OUT });
   });
 });

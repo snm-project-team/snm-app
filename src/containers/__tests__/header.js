@@ -15,10 +15,10 @@ describe('Header Container', () => {
   const wrapper = shallow(<Header />, { context: { store: mockStore(state) } });
 
   it('isSideMenuOpenがConponentに渡されていること', () => {
-    expect(wrapper.props().isSideMenuOpen).toEqual(false);
+    expect(wrapper.props().isSideMenuOpen).toEqual(state.main.isSideMenuOpen);
   });
 
-  it('setMenuOpenがConponentに渡されていること', () => {
+  it('setMenuOpen実行時にアクションが発行されていること', () => {
     expect(wrapper.props().setMenuOpen()).toEqual({ type: SET_MENU_OPEN });
   });
 });

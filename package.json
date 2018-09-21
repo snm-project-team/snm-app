@@ -27,7 +27,7 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "cov": "jest --coverage"
   },
   "jest": {
     "preset": "jest-expo",
