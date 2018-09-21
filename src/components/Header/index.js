@@ -23,6 +23,7 @@ export default class HeaderComponent extends Component {
       <Header>
         <Left>
           <Button
+            id="sideMenuToggle"
             transparent
             onPress={() => setMenuOpen(!isSideMenuOpen)}
           >

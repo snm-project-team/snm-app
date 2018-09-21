@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `
+exports[`signUp画面のスナップショットテスト 1`] = `
 <View
   enabled={true}
   keyboardVerticalOffset={0}
@@ -43,19 +43,13 @@ exports[`renders without crashing 1`] = `
   />
   <View
     accessibilityComponentType="button"
-    accessibilityLabel={undefined}
     accessibilityTraits={
       Array [
         "button",
       ]
     }
     accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
     isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
     onResponderRelease={[Function]}
@@ -67,8 +61,6 @@ exports[`renders without crashing 1`] = `
         "opacity": 1,
       }
     }
-    testID={undefined}
-    tvParallaxProperties={undefined}
   >
     <View
       style={
@@ -80,7 +72,6 @@ exports[`renders without crashing 1`] = `
       <Text
         accessible={true}
         allowFontScaling={true}
-        disabled={undefined}
         ellipsizeMode="tail"
         style={
           Array [
@@ -93,63 +84,7 @@ exports[`renders without crashing 1`] = `
           ]
         }
       >
-        サインイン
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityComponentType="button"
-    accessibilityLabel={undefined}
-    accessibilityTraits={
-      Array [
-        "button",
-      ]
-    }
-    accessible={true}
-    collapsable={undefined}
-    hasTVPreferredFocus={undefined}
-    hitSlop={undefined}
-    isTVSelectable={true}
-    nativeID={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-    testID={undefined}
-    tvParallaxProperties={undefined}
-  >
-    <View
-      style={
-        Array [
-          Object {},
-        ]
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        disabled={undefined}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#007AFF",
-              "fontSize": 18,
-              "padding": 8,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        新規登録
+        登録
       </Text>
     </View>
   </View>

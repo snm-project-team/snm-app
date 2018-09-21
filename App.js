@@ -3,7 +3,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import { StyleProvider, Container } from 'native-base';
-import { firebaseInit } from './src/dao/firebase';
+import { firebaseInit } from './src/daos/firebase';
 import rootSaga from './src/sagas';
 import rootReducer from './rootReducer';
 import { AppWithNavigationState, NavigationMiddleware } from './rootStack';

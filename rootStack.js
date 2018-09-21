@@ -25,7 +25,7 @@ const StackNavigator = createStackNavigator({
   Main: { screen: MainScreen },
 });
 
-const NavigationMiddleware = createReactNavigationReduxMiddleware('root', state =>  state.navigationRoot);
+const NavigationMiddleware = createReactNavigationReduxMiddleware('root', state => state.navigationRoot);
 const NavigatorApp = reduxifyNavigator(StackNavigator, 'root');
 
 const mapStateToProps = state => ({ state: state.navigationRoot });
