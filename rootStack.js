@@ -20,9 +20,11 @@ class MainScreen extends React.Component {
 }
 
 const StackNavigator = createStackNavigator({
+  Main: { screen: MainScreen },
   SignIn: { screen: SignInScreen },
   SignUp: { screen: SignUpScreen },
-  Main: { screen: MainScreen },
+}, {
+  headerMode: 'none',
 });
 
 const NavigationMiddleware = createReactNavigationReduxMiddleware('root', state => state.navigationRoot);

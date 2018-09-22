@@ -22,18 +22,15 @@ export default class SignInScreen extends React.Component {
     moveSignUpPage: PropTypes.func.isRequired,
   }
 
-  componentWillMount() {
-    const { getCurrentUser } = this.props;
-    getCurrentUser();
+  componentDidMount() {
+    this.props.getCurrentUser();
   }
 
   render() {
-    const { signIn, moveSignUpPage } = this.props;
-    const { email, password } = this.state;
     return (
       <KeyboardAvoidingView style={styles.container}>
         <TextInput
-          value={email}
+          value={this.state.email}
           onChangeText={value => this.setState({ email: value })}
           placeholder={TEXT.EMAIL}
           placeholderTextColor={BASIC.PLACE_HOLDER_TEXT_COLOR}
@@ -41,7 +38,7 @@ export default class SignInScreen extends React.Component {
           style={styles.textInput}
         />
         <TextInput
-          value={password}
+          value={this.state.password}
           onChangeText={value => this.setState({ password: value })}
           placeholder={TEXT.PASSWORD}
           placeholderTextColor={BASIC.PLACE_HOLDER_TEXT_COLOR}
@@ -53,13 +50,16 @@ export default class SignInScreen extends React.Component {
           // ボタンのコンポネントはタイトル直入れじゃないと怒る
           title="サインイン"
           buttonStyle={styles.button}
-          onPress={() => signIn({ email, password })}
+          onPress={() => this.props.signIn({
+            email: this.state.email,
+            password: this.state.password,
+          })}
         />
         <Button
           id="signUp"
           title="新規登録"
           buttonStyle={styles.button}
-          onPress={() => moveSignUpPage()}
+          onPress={() => this.props.moveSignUpPage()}
         />
       </KeyboardAvoidingView>
     );

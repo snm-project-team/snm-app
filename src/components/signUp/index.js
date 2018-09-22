@@ -21,12 +21,10 @@ export default class SignUpScreen extends React.Component {
   }
 
   render() {
-    const { signUp } = this.props;
-    const { email, password } = this.state;
     return (
       <KeyboardAvoidingView style={styles.container}>
         <TextInput
-          value={email}
+          value={this.state.email}
           onChangeText={value => this.setState({ email: value })}
           placeholder={TEXT.EMAIL}
           placeholderTextColor={BASIC.PLACE_HOLDER_TEXT_COLOR}
@@ -34,7 +32,7 @@ export default class SignUpScreen extends React.Component {
           style={styles.textInput}
         />
         <TextInput
-          value={password}
+          value={this.state.password}
           onChangeText={value => this.setState({ password: value })}
           placeholder={TEXT.PASSWORD}
           placeholderTextColor={BASIC.PLACE_HOLDER_TEXT_COLOR}
@@ -44,7 +42,10 @@ export default class SignUpScreen extends React.Component {
         <Button
           id="signUp"
           title="登録"
-          onPress={() => signUp({ email, password })}
+          onPress={() => this.props.signUp({
+            email: this.state.email,
+            password: this.state.password,
+          })}
         />
       </KeyboardAvoidingView>
     );

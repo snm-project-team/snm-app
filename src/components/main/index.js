@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Drawer from 'react-native-drawer';
 import SideNav from '../../containers/sideNav/mainMenu';
-import Map from './map';
+import Map from '../../containers/main/map';
 
 const drawerStyles = {
   drawer: { backgroundColor: '#FFFFFF' },
@@ -17,18 +17,16 @@ export default class DrawerComponent extends Component {
   }
 
   componentWillUnmount() {
-    const { getCurrentUser } = this.props;
-    getCurrentUser();
+    this.props.getCurrentUser();
   }
 
   render() {
-    const { isSideMenuOpen, setMenuOpen } = this.props;
     return (
       <Drawer
-        open={isSideMenuOpen}
+        open={this.props.isSideMenuOpen}
         onClose={() => {
-          if (isSideMenuOpen) {
-            setMenuOpen(false);
+          if (this.props.isSideMenuOpen) {
+            this.props.setMenuOpen(false);
           }
         }}
         type="overlay"

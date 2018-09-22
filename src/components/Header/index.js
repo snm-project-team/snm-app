@@ -18,14 +18,13 @@ export default class HeaderComponent extends Component {
   }
 
   render() {
-    const { setMenuOpen, isSideMenuOpen } = this.props;
     return (
       <Header>
         <Left>
           <Button
             id="sideMenuToggle"
             transparent
-            onPress={() => setMenuOpen(!isSideMenuOpen)}
+            onPress={() => this.props.setMenuOpen(!this.props.isSideMenuOpen)}
           >
             <Icon name={ICON.MENU} />
           </Button>
