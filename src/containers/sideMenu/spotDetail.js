@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import SideNav from '../../components/sideNav';
+import SpotDetail from '../../components/sideMenu/spotDetail';
 
 function mapStateToProps(state) {
   return {
-    dislayContent: state.main.dislayContent,
+    spotId: state.main.spotId,
   };
 }
 
 export default connect(
   mapStateToProps,
-)(SideNav);
+)(SpotDetail);

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import jest from 'jest-mock';
-import MainMenu from '../../sideNav/mainMenu';
+import MainMenu from '../../sideMenu/mainMenu';
 
 const mockFn = jest.fn();
 

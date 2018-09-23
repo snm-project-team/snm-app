@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import MainMenu from '../../containers/sideNav/mainMenu';
+import MainMenu from '../../containers/sideMenu/mainMenu';
 import { SIDE_MENU_LIST } from '../../common/globalConstants';
-import SpotDetail from '../../containers/sideNav/spotDetail';
+import SpotDetail from '../../containers/sideMenu/spotDetail';
 
 export default class SideNav extends Component {
   static propTypes={

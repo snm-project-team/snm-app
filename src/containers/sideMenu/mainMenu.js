@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { signOut } from '../../actions/authentication';
-import MainMenu from '../../components/sideNav/mainMenu';
+import MainMenu from '../../components/sideMenu/mainMenu';
 
 function mapStateToProps(state) {
   return {

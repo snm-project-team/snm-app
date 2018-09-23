@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Drawer from 'react-native-drawer';
-import SideNav from '../../containers/sideNav';
+import SideNav from '../../containers/sideMenu';
 import Map from '../../containers/main/map';
 
 const drawerStyles = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import jest from 'jest-mock';
 import { shallow } from 'enzyme';
-import MainMenu from '../../sideNav/mainMenu';
+import MainMenu from '../../sideMenu/mainMenu';
 
 const mockFn = jest.fn();
 const wrapper = shallow(

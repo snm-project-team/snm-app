@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import { EMPTY_OBJECT } from '../../common/globalConstants';
 import { SIGN_OUT } from '../../actions/authentication';
-import MainMenu from '../sideNav/mainMenu';
+import MainMenu from '../sideMenu/mainMenu';
 
 const mockStore = configureMockStore();
 const state = {
