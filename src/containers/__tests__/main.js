@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
-import { SET_MENU_OPEN } from '../../actions/main';
+import { SET_SIDE_MENU_CLOSE } from '../../actions/main';
 import { GET_CURRENT_USER } from '../../actions/authentication';
 import Main from '../main';
 
@@ -16,14 +16,14 @@ describe('Main Container', () => {
   const wrapper = shallow(<Main />, { context: { store: mockStore(state) } });
 
   it('isSideMenuOpenがConponentに渡されていること', () => {
-    expect(wrapper.props().isSideMenuOpen).toEqual(false);
+    expect(wrapper.props().isSideMenuOpen).toEqual(state.main.isSideMenuOpen);
   });
 
   it('getCurrentUser実行時にアクションが発行されていること', () => {
     expect(wrapper.props().getCurrentUser()).toEqual({ type: GET_CURRENT_USER });
   });
 
-  it('setMenuOpen実行時にアクションが発行されていること', () => {
-    expect(wrapper.props().setMenuOpen()).toEqual({ type: SET_MENU_OPEN });
+  it('setMainMenuOpen実行時にアクションが発行されていること', () => {
+    expect(wrapper.props().setSideMenuClose()).toEqual({ type: SET_SIDE_MENU_CLOSE });
   });
 });

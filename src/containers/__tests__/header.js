@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
-import { SET_MENU_OPEN } from '../../actions/main';
+import { SET_MAIN_MENU_OPEN } from '../../actions/main';
 import Header from '../header';
 
 const mockStore = configureMockStore();
@@ -18,7 +18,7 @@ describe('Header Container', () => {
     expect(wrapper.props().isSideMenuOpen).toEqual(state.main.isSideMenuOpen);
   });
 
-  it('setMenuOpen実行時にアクションが発行されていること', () => {
-    expect(wrapper.props().setMenuOpen()).toEqual({ type: SET_MENU_OPEN });
+  it('setMainMenuOpen実行時にアクションが発行されていること', () => {
+    expect(wrapper.props().setMainMenuOpen()).toEqual({ type: SET_MAIN_MENU_OPEN });
   });
 });

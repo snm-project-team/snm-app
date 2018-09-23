@@ -9,7 +9,7 @@ it('Header画面のスナップショットテスト', () => {
   const rendered = renderer.create(
     <Header
       isSideMenuOpen={false}
-      setMenuOpen={mockFn}
+      setMainMenuOpen={mockFn}
     />,
   ).toJSON();
   expect(rendered).toMatchSnapshot();

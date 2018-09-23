@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setMenuOpen } from '../../actions/main';
+import { setMainMenuOpen } from '../../actions/main';
 import Header from '../../components/header';
 
 function mapStateToProps(state) {
@@ -10,7 +10,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setMenuOpen: isSideMenuOpen => dispatch(setMenuOpen(isSideMenuOpen)),
+    setMainMenuOpen: isMainMenuOpen => dispatch(setMainMenuOpen(isMainMenuOpen)),
   };
 }
 

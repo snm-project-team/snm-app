@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Drawer from 'react-native-drawer';
-import SideNav from '../../containers/sideNav/mainMenu';
+import SideNav from '../../containers/sideNav';
 import Map from '../../containers/main/map';
 
 const drawerStyles = {
@@ -13,7 +13,7 @@ export default class DrawerComponent extends Component {
   static propTypes={
     getCurrentUser: PropTypes.func.isRequired,
     isSideMenuOpen: PropTypes.bool.isRequired,
-    setMenuOpen: PropTypes.func.isRequired,
+    setSideMenuClose: PropTypes.func.isRequired,
   }
 
   componentWillUnmount() {
@@ -26,7 +26,7 @@ export default class DrawerComponent extends Component {
         open={this.props.isSideMenuOpen}
         onClose={() => {
           if (this.props.isSideMenuOpen) {
-            this.props.setMenuOpen(false);
+            this.props.setSideMenuClose();
           }
         }}
         type="overlay"

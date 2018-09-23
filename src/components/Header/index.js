@@ -14,7 +14,7 @@ import styles from './styles';
 export default class HeaderComponent extends Component {
   static propTypes={
     isSideMenuOpen: PropTypes.bool.isRequired,
-    setMenuOpen: PropTypes.func.isRequired,
+    setMainMenuOpen: PropTypes.func.isRequired,
   }
 
   render() {
@@ -24,7 +24,7 @@ export default class HeaderComponent extends Component {
           <Button
             id="sideMenuToggle"
             transparent
-            onPress={() => this.props.setMenuOpen(!this.props.isSideMenuOpen)}
+            onPress={() => this.props.setMainMenuOpen(!this.props.isSideMenuOpen)}
           >
             <Icon name={ICON.MENU} />
           </Button>

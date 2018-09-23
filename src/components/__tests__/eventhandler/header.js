@@ -7,7 +7,7 @@ const mockFn = jest.fn();
 const wrapper = shallow(
   <Header
     isSideMenuOpen={false}
-    setMenuOpen={mockFn}
+    setMainMenuOpen={mockFn}
   />,
 );
 

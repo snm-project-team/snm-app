@@ -1,16 +1,22 @@
 import { connect } from 'react-redux';
-import { setMenuOpen } from '../../actions/main';
+import { setSpotDetailOpen } from '../../actions/main';
 import Map from '../../components/main/map';
 
 function mapStateToProps(state) {
   return {
-    isSideMenuOpen: state.main.isSideMenuOpen,
+    isMainMenuOpen: state.main.isMainMenuOpen,
+    isSpotDetailOpen: state.main.isSpotDetailOpen,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setMenuOpen: isSideMenuOpen => dispatch(setMenuOpen(isSideMenuOpen)),
+    setSpotDetailOpen: (isSpotDetailOpen, spotId) => dispatch(
+      setSpotDetailOpen({
+        isSpotDetailOpen,
+        spotId,
+      }),
+    ),
   };
 }
 

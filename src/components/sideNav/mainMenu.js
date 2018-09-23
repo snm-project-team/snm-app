@@ -9,15 +9,19 @@ export default class SideNav extends Component {
   }
 
   render() {
-    const { signOut } = this.props;
     return (
       <List>
+        <ListItem>
+          <Text>
+            {TEXT.EDIT_PROFILE}
+          </Text>
+        </ListItem>
         <ListItem>
           <Text>
             {TEXT.GROUP_MANAGE}
           </Text>
         </ListItem>
-        <ListItem id="signOut" onPress={() => signOut()}>
+        <ListItem id="signOut" onPress={() => this.props.signOut()}>
           <Text>
             {TEXT.SIGN_OUT}
           </Text>
