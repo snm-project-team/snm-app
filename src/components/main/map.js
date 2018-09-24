@@ -15,21 +15,19 @@ export default class Map extends Component {
         initialRegion={{
           latitude: 35.681167,
           longitude: 139.767052,
-          latitudeDelta: 1,
-          longitudeDelta: 1,
+          latitudeDelta: 0.05,
+          longitudeDelta: 0.05,
         }}
       >
         <MapView.Marker
           coordinate={{ latitude: 35.681167, longitude: 139.767052 }}
-          title="marker.title"
-          description="desss"
+          title="居酒屋　かざえ"
           // sagaのイベント、詳細情報をコール、独自コンポネント呼びだし、座標どうするかが問題?
           onPress={() => this.props.setSpotDetailOpen(!this.props.isSpotDetailOpen, '1')}
         />
         <MapView.Marker
           coordinate={{ latitude: 34.681167, longitude: 138.767052 }}
           title="marker.title"
-          description="desss"
           // sagaのイベント、詳細情報をコール、独自コンポネント呼びだし、座標どうするかが問題?
           onPress={() => this.props.setSpotDetailOpen(!this.props.isSpotDetailOpen, '2')}
         />

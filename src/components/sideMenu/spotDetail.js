@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Image } from 'react-native';
 import { List, ListItem, Text } from 'native-base';
+import styles from './styles';
 
 export default class SideNav extends Component {
   static propTypes={
@@ -14,8 +16,11 @@ export default class SideNav extends Component {
   }
 
   render() {
+    // eslint-disable-next-line global-require
+    const image = require('../..//images/spot/test.jpg');
     return (
       <List>
+        <Image source={image} style={styles.image} />
         <ListItem>
           <Text>
             {this.props.spotInfo.name}

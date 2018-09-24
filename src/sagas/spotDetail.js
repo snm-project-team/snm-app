@@ -6,7 +6,7 @@ export function* getSpotInfo(action) {
   console.log(action);
   const spotInfo = {
     id: 'abcde',
-    name: '居酒屋○○',
+    name: '居酒屋 かざえ',
     imagePath: ['src/images/spot/test.png', 'src/images/spot/test2.png'],
     address: '東京都中央区',
     phoneNumber: '03-123-4567',
