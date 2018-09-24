@@ -8,7 +8,13 @@ export default class Map extends Component {
     setSpotDetailOpen: PropTypes.func.isRequired,
   };
 
+  state = {
+    latitude: 35.681167,
+    longitude: 139.767052,
+  };
+
   render() {
+    console.log(this.state.latitude);
     return (
       <MapView
         style={{ flex: 1 }}
@@ -18,17 +24,24 @@ export default class Map extends Component {
           latitudeDelta: 0.05,
           longitudeDelta: 0.05,
         }}
+        region={{
+          latitude: this.state.latitude,
+          longitude: this.state.longitude,
+          latitudeDelta: 0.05,
+          longitudeDelta: 0.05,
+        }}
       >
         <MapView.Marker
           coordinate={{ latitude: 35.681167, longitude: 139.767052 }}
-          title="居酒屋　かざえ"
-          // sagaのイベント、詳細情報をコール、独自コンポネント呼びだし、座標どうするかが問題?
-          onPress={() => this.props.setSpotDetailOpen(!this.props.isSpotDetailOpen, '1')}
+          title="居酒屋 かざえ"
+          onPress={() => {
+            this.setState({ longitude: 139.749052 });
+            this.props.setSpotDetailOpen(!this.props.isSpotDetailOpen, '1');
+          }}
         />
         <MapView.Marker
           coordinate={{ latitude: 34.681167, longitude: 138.767052 }}
           title="marker.title"
-          // sagaのイベント、詳細情報をコール、独自コンポネント呼びだし、座標どうするかが問題?
           onPress={() => this.props.setSpotDetailOpen(!this.props.isSpotDetailOpen, '2')}
         />
       </MapView>

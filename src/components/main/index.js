@@ -32,8 +32,8 @@ export default class DrawerComponent extends Component {
         type="overlay"
         content={<SideNav />}
         tapToClose
-        openDrawerOffset={0.2}
-        panCloseMask={0.2}
+        openDrawerOffset={0.3}
+        panCloseMask={0.3}
         closedDrawerOffset={-3}
         styles={drawerStyles}
       >
