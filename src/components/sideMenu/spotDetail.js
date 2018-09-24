@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Image } from 'react-native';
+import { View, Image, ScrollView } from 'react-native';
 import { List, ListItem, Text } from 'native-base';
 import styles from './styles';
 
@@ -16,17 +16,64 @@ export default class SideNav extends Component {
   }
 
   render() {
-    // eslint-disable-next-line global-require
-    const image = require('../..//images/spot/test.jpg');
+    // eslint-disable-next-line global-require, import/no-dynamic-require
+    const image = this.props.spotInfo.id === 'abcde' ? require('../../images/spot/test.jpg') : require('../../images/spot/test2.jpg');
     return (
-      <List>
+      <View style={styles.container}>
         <Image source={image} style={styles.image} />
-        <ListItem>
-          <Text>
-            {this.props.spotInfo.name}
-          </Text>
-        </ListItem>
-      </List>
+        <List>
+          <ListItem>
+            <Text>
+              {this.props.spotInfo.name}
+            </Text>
+          </ListItem>
+        </List>
+        <ScrollView style={styles.informationContainer}>
+          <List>
+            <ListItem>
+              <Text style={styles.column1}>
+                住所：
+              </Text>
+              <Text style={styles.column2}>
+                {this.props.spotInfo.address}
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text style={styles.column1}>
+                電話番号：
+              </Text>
+              <Text style={styles.column2}>
+                {this.props.spotInfo.phoneNumber}
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text style={styles.column1}>
+                営業時間：
+              </Text>
+              <Text style={styles.column2}>
+                {this.props.spotInfo.businessHours}
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text style={styles.column1}>
+                評価：
+              </Text>
+              <Text style={styles.column2}>
+                ★★★★☆
+              </Text>
+            </ListItem>
+          </List>
+        </ScrollView>
+        <ScrollView style={styles.chatContainer}>
+          <List>
+            <ListItem>
+              <Text>
+                チャット
+              </Text>
+            </ListItem>
+          </List>
+        </ScrollView>
+      </View>
     );
   }
 }

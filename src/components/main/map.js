@@ -14,7 +14,6 @@ export default class Map extends Component {
   };
 
   render() {
-    console.log(this.state.latitude);
     return (
       <MapView
         style={{ flex: 1 }}
@@ -35,14 +34,17 @@ export default class Map extends Component {
           coordinate={{ latitude: 35.681167, longitude: 139.767052 }}
           title="居酒屋 かざえ"
           onPress={() => {
-            this.setState({ longitude: 139.749052 });
+            this.setState({ latitude: 35.681167, longitude: 139.749052 });
             this.props.setSpotDetailOpen(!this.props.isSpotDetailOpen, '1');
           }}
         />
         <MapView.Marker
           coordinate={{ latitude: 34.681167, longitude: 138.767052 }}
-          title="marker.title"
-          onPress={() => this.props.setSpotDetailOpen(!this.props.isSpotDetailOpen, '2')}
+          title="伊豆"
+          onPress={() => {
+            this.setState({ latitude: 34.681167, longitude: 138.749052 });
+            this.props.setSpotDetailOpen(!this.props.isSpotDetailOpen, '2');
+          }}
         />
       </MapView>
     );
