@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Image, ScrollView } from 'react-native';
-import { List, ListItem, Text } from 'native-base';
+import {
+  List,
+  ListItem,
+  Card,
+  CardItem,
+  Text,
+  Left,
+  Body,
+  Right,
+} from 'native-base';
 import styles from './styles';
 
 export default class SideNav extends Component {
@@ -18,6 +27,8 @@ export default class SideNav extends Component {
   render() {
     // eslint-disable-next-line global-require, import/no-dynamic-require
     const image = this.props.spotInfo.id === 'abcde' ? require('../../images/spot/test.jpg') : require('../../images/spot/test2.jpg');
+    // eslint-disable-next-line global-require, import/no-dynamic-require
+    const icon = require('../../images/icon/test.png');
     return (
       <View style={styles.container}>
         <Image source={image} style={styles.image} />
@@ -65,13 +76,70 @@ export default class SideNav extends Component {
           </List>
         </ScrollView>
         <ScrollView style={styles.chatContainer}>
-          <List>
-            <ListItem>
-              <Text>
-                チャット
+          <Card style={styles.card}>
+            <CardItem>
+              <Left>
+                <Image source={icon} style={styles.icon} />
+                <Text>
+                  テストユーザー
+                </Text>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Text style={styles.cardText}>
+                ここめっちゃ良いとこ
               </Text>
-            </ListItem>
-          </List>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Text>
+                  返信
+                </Text>
+              </Left>
+              <Body>
+                <Text>
+                  4 いいね
+                </Text>
+              </Body>
+              <Right>
+                <Text>
+                  45分前
+                </Text>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card style={styles.card}>
+            <CardItem>
+              <Left>
+                <Image source={icon} style={styles.icon} />
+                <Text>
+                  テストユーザー
+                </Text>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Text style={styles.cardText}>
+                写真追加しました。
+              </Text>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Text>
+                  返信 (1)
+                </Text>
+              </Left>
+              <Body>
+                <Text>
+                  9 いいね
+                </Text>
+              </Body>
+              <Right>
+                <Text>
+                  23分前
+                </Text>
+              </Right>
+            </CardItem>
+          </Card>
         </ScrollView>
       </View>
     );

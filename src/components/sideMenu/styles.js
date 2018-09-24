@@ -24,4 +24,16 @@ export default StyleSheet.create({
   column2: {
     flex: 1,
   },
+  card: {
+    margin: 5,
+  },
+  icon: {
+    height: 35,
+    width: 35,
+    borderRadius: 35,
+  },
+  cardText: {
+    paddingLeft: 20,
+    paddingBottom: 5,
+  },
 });

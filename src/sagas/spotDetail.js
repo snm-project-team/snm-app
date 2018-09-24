@@ -20,7 +20,17 @@ export function* getSpotInfo(action) {
       id: 'abcdef',
       createDate: moment(),
       updateDate: moment(),
-      content: 'ここは美味しい',
+      content: 'かざえのお店',
+      WriteUser: {
+        id: 'abcdefg',
+        name: 'test_user',
+        iconImage: 'src/images/icon/test.png',
+      },
+    }, {
+      id: 'qwert',
+      createDate: moment(),
+      updateDate: moment(),
+      content: 'すごい',
       WriteUser: {
         id: 'abcdefg',
         name: 'test_user',
@@ -46,7 +56,17 @@ export function* getSpotInfo(action) {
         id: 'abcdef',
         createDate: moment(),
         updateDate: moment(),
-        content: 'ここは美味しい',
+        content: 'めっちゃ綺麗',
+        WriteUser: {
+          id: 'abcdefg',
+          name: 'test_user',
+          iconImage: 'src/images/icon/test.png',
+        },
+      }, {
+        id: 'qwert',
+        createDate: moment(),
+        updateDate: moment(),
+        content: 'すごい',
         WriteUser: {
           id: 'abcdefg',
           name: 'test_user',
